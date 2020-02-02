@@ -11,4 +11,6 @@ public interface ArtistService {
     List<Artist> getAllArtists();
 
     Artist addArtist(Artist artist);
+
+    Artist updateArtist(Artist artist);
 }

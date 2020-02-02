@@ -51,4 +51,13 @@ public class Artist {
         return name != null && !name.isEmpty();
 
     }
+
+    @Override
+    public String toString() {
+        return "Artist{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", albums=" + albums +
+                '}';
+    }
 }

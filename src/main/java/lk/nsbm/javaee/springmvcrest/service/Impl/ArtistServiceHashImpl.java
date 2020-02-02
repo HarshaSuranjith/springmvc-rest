@@ -36,6 +36,16 @@ public class ArtistServiceHashImpl implements ArtistService {
         return artist;
     }
 
+    @Override
+    public Artist updateArtist(Artist artist) {
+        if (artists.containsKey(artist.getId())) {
+            artists.put(artist.getId(), artist);
+            return artist;
+        } else {
+            throw new RuntimeException("Artist not in database");
+        }
+    }
+
     private void initData() {
 
         Artist bobMarley = new Artist(getNextKey(), "Bob Marley", Arrays.asList("Talkin blues", "Catch a Fire"));

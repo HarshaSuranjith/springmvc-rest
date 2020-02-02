@@ -54,6 +54,19 @@ public class ArtistsController {
 
     }
 
+    @PutMapping
+    public ResponseEntity<?> updateArtist(@RequestBody Artist artist) {
+        if (artist.getId() != null && artist.isValid()) {
+            Artist updated = this.artistService.updateArtist(artist);
+            return ResponseEntity.ok(updated);
+        } else {
+            Map<String, String> error = new HashMap<>();
+            error.put("time", LocalDateTime.now().toString());
+            error.put("error", "Invalid artist info: " + artist.toString());
+            return ResponseEntity.badRequest().body(error);
+        }
+    }
+
 
 //    @Autowired
 //    public void setArtistService(ArtistService artistService) {
